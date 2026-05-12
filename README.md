@@ -1,318 +1,287 @@
-# LCD-ClimaEsp32-
+LCD Climate ESP32
+Project developed using ESP32 and a 20x4 I2C LCD display to show real-time weather and time information through online APIs.
 
-# LCD Clima ESP32
+Features
 
-Projeto desenvolvido com ESP32 utilizando display LCD I2C 20x4 para exibir informações climáticas e horário em tempo real através de APIs online.
 
----
+Real-time weather monitoring
 
-# Funcionalidades
 
-* Clima em tempo real
-* Temperatura atual
-* Sensação térmica
-* Umidade do ar
-* Quantidade de nuvens
-* Velocidade do vento
-* Direção do vento traduzida
-* Pressão atmosférica
-* Índice UV
-* Relógio em tempo real
-* Navegação entre telas usando botão
-* Atualização automática dos dados
+Current temperature
 
----
 
-# Tecnologias Utilizadas
+Feels-like temperature
 
-* ESP32
-* C++
-* Arduino Framework
-* PlatformIO
-* APIs REST
-* LCD I2C 20x4
-* Wi-Fi
-* JSON
 
----
+Air humidity
 
-# Bibliotecas Utilizadas
 
-```cpp
-#include <WiFi.h>
-#include <WiFiClientSecure.h>
-#include <HTTPClient.h>
-#include <ArduinoJson.h>
-#include <Wire.h>
-#include <LiquidCrystal_I2C.h>
-```
+Cloud coverage
 
----
 
-# Estrutura do Projeto
+Wind speed
 
-```text
-LCD-ClimaEsp32/
-│
-├── src/
-│   └── main.cpp
-│
-├── include/
-│
-├── lib/
-│
-├── platformio.ini
-│
-└── README.md
-```
 
----
+Translated wind direction
 
-# Hardware Utilizado
 
-## ESP32
+Atmospheric pressure
 
-Responsável pela conexão Wi-Fi e processamento dos dados.
 
-## LCD I2C 20x4
+UV index
 
-Responsável pela exibição das informações climáticas.
 
-Endereço I2C:
+Real-time clock
 
-```cpp
+
+Screen navigation using a button
+
+
+Automatic data updates
+
+
+
+Technologies Used
+
+
+ESP32
+
+
+C++
+
+
+Arduino Framework
+
+
+PlatformIO
+
+
+REST APIs
+
+
+I2C 20x4 LCD
+
+
+Wi-Fi
+
+
+JSON
+
+
+
+Libraries Used
+#include <WiFi.h>#include <WiFiClientSecure.h>#include <HTTPClient.h>#include <ArduinoJson.h>#include <Wire.h>#include <LiquidCrystal_I2C.h>
+
+Project Structure
+LCD-ClimaEsp32/│├── src/│   └── main.cpp│├── include/│├── lib/│├── platformio.ini│└── README.md
+
+Hardware Used
+ESP32
+Responsible for Wi-Fi connectivity and data processing.
+LCD I2C 20x4
+Responsible for displaying weather information.
+I2C Address:
 0x27
-```
-
-## Botão
-
-GPIO utilizado:
-
-```cpp
+Button
+Used GPIO:
 GPIO 0
-```
+Function:
 
-Função:
 
-* trocar telas do display.
+switch display screens.
 
----
 
-# APIs Utilizadas
 
-## Clima
-
+APIs Used
+Weather
 https://www.weatherapi.com/
-
-## Hora
-
+Time
 https://timeapi.io/
 
----
-
-# Como Baixar o Projeto
-
-## Opção 1 — Pelo GitHub
-
-Abra o terminal e execute:
-
-```bash
+How to Download the Project
+Option 1 — Using GitHub
+Open the terminal and run:
 git clone https://github.com/JP-DEV-2302/LCD-ClimaEsp32-.git
-```
-
-Depois:
-
-```bash
+Then:
 cd LCD-ClimaEsp32-
-```
 
----
+Option 2 — Download ZIP
 
-## Opção 2 — Download ZIP
 
-1. Entre no repositório GitHub
-2. Clique em:
+Open the GitHub repository
 
-```text
+
+Click:
+
+
 Code
-```
 
-3. Depois:
 
-```text
+Then:
+
+
 Download ZIP
-```
 
-4. Extraia a pasta.
 
----
+Extract the folder.
 
-# Como Abrir no VSCode
 
-## 1. Instale o VSCode
 
+How to Open in VSCode
+1. Install VSCode
 https://code.visualstudio.com/
 
----
-
-## 2. Instale o PlatformIO
-
+2. Install PlatformIO
 https://platformio.org/
+Or:
 
-Ou:
 
-* Abra VSCode
-* Vá em Extensões
-* Procure:
+Open VSCode
 
-```text
+
+Go to Extensions
+
+
+Search for:
+
+
 PlatformIO IDE
-```
 
-* Instale.
 
----
+Install it.
 
-## 3. Abrir Projeto
 
-No VSCode:
 
-```text
-Arquivo → Abrir Pasta
-```
-
-Selecione:
-
-```text
+3. Open the Project
+In VSCode:
+File → Open Folder
+Select:
 LCD-ClimaEsp32-
-```
 
----
-
-# Como Configurar
-
-Abra:
-
-```text
+Configuration
+Open:
 src/main.cpp
-```
+Change:
+const char *WIFI_SSID = "YOUR_WIFI";const char *WIFI_PASSWORD = "YOUR_PASSWORD";
 
-Altere:
+API Configuration
+Replace your API key here:
+const char *URL_API = "https://api.weatherapi.com/v1/current.json?key=YOUR_API_KEY";
 
-```cpp
-const char *WIFI_SSID = "SEU_WIFI";
-const char *WIFI_SENHA = "SUA_SENHA";
-```
+How to Compile
+In PlatformIO:
+Build
+Compiles the project.
+Upload
+Uploads the firmware to the ESP32.
+Monitor
+Opens the serial monitor.
 
----
+System Workflow
+The ESP32:
 
-# Configurar API
 
-Substitua sua chave aqui:
+connects to Wi-Fi;
 
-```cpp
-const char *URL_API = "https://api.weatherapi.com/v1/current.json?key=SUA_API_KEY";
-```
 
----
+accesses APIs;
 
-# Como Compilar
 
-No PlatformIO:
+receives JSON data;
 
-## Build
 
-Compila o projeto.
+processes information;
 
-## Upload
 
-Envia para o ESP32.
+displays everything on the LCD.
 
-## Monitor
 
-Abre o monitor serial.
 
----
+Screen System
+Screen 1
 
-# Funcionamento do Sistema
 
-O ESP32:
+city;
 
-1. conecta ao Wi-Fi;
-2. acessa APIs;
-3. recebe dados JSON;
-4. processa informações;
-5. exibe tudo no LCD.
 
----
+state;
 
-# Sistema de Telas
 
-## Tela 1
+time;
 
-* cidade;
-* estado;
-* hora;
-* condição climática.
 
-## Tela 2
+weather condition.
 
-* temperatura;
-* sensação térmica;
-* umidade;
-* nuvens.
 
-## Tela 3
+Screen 2
 
-* vento;
-* direção;
-* pressão;
-* UV.
 
----
+temperature;
 
-# Atualização Automática
 
-Os dados são atualizados automaticamente a cada:
+feels-like temperature;
 
-```text
-30 segundos
-```
 
----
+humidity;
 
-# Tradução da Direção do Vento
 
-O sistema traduz automaticamente:
+cloud coverage.
 
-```text
-N  -> Norte
-NE -> Nordeste
-SW -> Sudoeste
-W  -> Oeste
-```
 
----
+Screen 3
 
-# Melhorias Futuras
 
-* previsão do tempo;
-* gráficos;
-* dashboard web;
-* aplicativo mobile;
-* integração IoT;
-* LEDs inteligentes;
-* notificações;
-* integração com IA.
+wind;
 
----
 
-# Autor
+direction;
 
-Projeto desenvolvido por João Pedro.
 
----
+pressure;
 
-# Licença
 
-Projeto educacional e experimental.
+UV index.
+
+
+
+Automatic Updates
+Data is automatically updated every:
+30 seconds
+
+Wind Direction Translation
+The system automatically translates:
+N  -> NorthNE -> NortheastSW -> SouthwestW  -> West
+
+Future Improvements
+
+
+weather forecast;
+
+
+charts and graphs;
+
+
+web dashboard;
+
+
+mobile app;
+
+
+IoT integration;
+
+
+smart LEDs;
+
+
+notifications;
+
+
+AI integration.
+
+
+
+Author
+Project developed by João Pedro.
+
+License
+Educational and experimental project.
